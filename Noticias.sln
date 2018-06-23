@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleAlertAPI", "..\..\..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolaAPIGoogleAlert", "ConsolaAPIGoogleAlert\ConsolaAPIGoogleAlert.csproj", "{562E4B90-BF7B-45E3-BE7F-C097982F2FE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{D2A3453D-DA8B-4F27-B9ED-6692018DA255}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoticiasMaster", "NoticiasMaster\NoticiasMaster.csproj", "{6BE25A7B-7683-4DF3-8534-E181656E4669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{562E4B90-BF7B-45E3-BE7F-C097982F2FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{562E4B90-BF7B-45E3-BE7F-C097982F2FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{562E4B90-BF7B-45E3-BE7F-C097982F2FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A3453D-DA8B-4F27-B9ED-6692018DA255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A3453D-DA8B-4F27-B9ED-6692018DA255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A3453D-DA8B-4F27-B9ED-6692018DA255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A3453D-DA8B-4F27-B9ED-6692018DA255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BE25A7B-7683-4DF3-8534-E181656E4669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BE25A7B-7683-4DF3-8534-E181656E4669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BE25A7B-7683-4DF3-8534-E181656E4669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BE25A7B-7683-4DF3-8534-E181656E4669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

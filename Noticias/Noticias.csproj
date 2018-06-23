@@ -45,6 +45,32 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\Proyectos .net\TicketsTagor\ClassLibrary1\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\Proyectos .net\TicketsTagor\ClassLibrary1\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\Proyectos .net\TicketsTagor\ClassLibrary1\bin\Debug\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\Proyectos .net\TicketsTagor\ClassLibrary1\bin\Debug\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\..\Desktop\Proyectos .net\TicketsTagor\ClassLibrary1\bin\Debug\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\Proyectos .net\TicketsTagor\ClassLibrary1\bin\Debug\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\..\..\..\Desktop\Proyectos .net\TicketsTagor\ClassLibrary1\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="NewsAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NewsAPI.0.5.0\lib\portable45-net45+win8+wpa81\NewsAPI.dll</HintPath>
     </Reference>
@@ -74,6 +100,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap-grid.css" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap-grid.min.css" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap-reboot.css" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap.css" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap.min.css" />
+    <Content Include="assets\bootstrap-4.1.1-dist\js\bootstrap.bundle.js" />
+    <Content Include="assets\bootstrap-4.1.1-dist\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\bootstrap-4.1.1-dist\js\bootstrap.js" />
+    <Content Include="assets\bootstrap-4.1.1-dist\js\bootstrap.min.js" />
     <Content Include="bootstrap-4.1.1\.babelrc.js" />
     <Content Include="bootstrap-4.1.1\.gitattributes" />
     <Content Include="bootstrap-4.1.1\.gitignore" />
@@ -270,6 +306,7 @@
     <Content Include="bootstrap-4.1.1\_layouts\simple.html" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Noticias.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -282,6 +319,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Noticias.aspx.cs">
+      <DependentUpon>Noticias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Noticias.aspx.designer.cs">
+      <DependentUpon>Noticias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -528,6 +572,16 @@
     <Content Include="bootstrap-4.1.1\_includes\callout-danger-async-methods.md" />
     <Content Include="bootstrap-4.1.1\_includes\callout-info-mediaqueries-breakpoints.md" />
     <Content Include="bootstrap-4.1.1\_includes\callout-warning-color-assistive-technologies.md" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap-grid.css.map" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap-reboot.css.map" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap.css.map" />
+    <Content Include="assets\bootstrap-4.1.1-dist\css\bootstrap.min.css.map" />
+    <Content Include="assets\bootstrap-4.1.1-dist\js\bootstrap.bundle.js.map" />
+    <Content Include="assets\bootstrap-4.1.1-dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="assets\bootstrap-4.1.1-dist\js\bootstrap.js.map" />
+    <Content Include="assets\bootstrap-4.1.1-dist\js\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -544,6 +598,10 @@
     <ProjectReference Include="..\ConsolaPruebaAPI\ConsolaPruebaAPI.csproj">
       <Project>{13597f7e-8997-4676-aeef-9989b08fe9f7}</Project>
       <Name>ConsolaPruebaAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{d2a3453d-da8b-4f27-b9ed-6692018da255}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
