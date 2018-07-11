@@ -72,12 +72,13 @@ namespace ConsolaAPIGoogleAlert
                         int cate = item.Categories.Count();
                         string tituloLink = string.Empty;
                         string uri = string.Empty;
+                        string uri2 = string.Empty;
                         string autor = string.Empty;
                         DateTimeOffset dateFecha = item.PublishDate;
                         string fecha = dateFecha.DateTime.ToShortDateString();
                         string contenido = ((System.ServiceModel.Syndication.TextSyndicationContent)item.Content).Text;
                         string tipo = item.Content.Type;
-                 
+                        
 
                         Console.WriteLine("Item Links");
                         foreach (var link in item.Links)
@@ -85,7 +86,20 @@ namespace ConsolaAPIGoogleAlert
                             Console.WriteLine("Link Title: " + link.Title);
                             tituloLink = link.Title;
                             Console.WriteLine("URI: " + link.Uri);
-                            uri = link.Uri.OriginalString;
+                            //
+                            uri2 = link.Uri.OriginalString;
+
+
+                            foreach (string valor in link.Uri.Query.Split('&'))
+                            {
+                                string[] parts = valor.Replace("?", "").Split('=');
+                                if (parts[0] == "url")
+                                {
+                                    uri = parts[1];
+                                    break;
+                                }
+                            }
+
                             Console.WriteLine("RelationshipType: " + link.RelationshipType);
                             Console.WriteLine("MediaType: " + link.MediaType);
                             Console.WriteLine("Length: " + link.Length);
@@ -118,7 +132,7 @@ namespace ConsolaAPIGoogleAlert
                         //string sdjds = url;
 
 
-                        string queryNoticias = "exec stp_IngresoNoticia'" + id + "','" + idAlerta + "','" + titulo + "','" + autor + "','" + contenido + "','" + uri + "','" + uri + "','" + fecha + "'";
+                        string queryNoticias = "exec stp_IngresoNoticia'" + id + "','" + idAlerta + "','" + titulo + "','" + autor + "','" + contenido + "','" + uri + "','" + uri2 + "','" + fecha + "'";
                         Console.WriteLine("Ingresando Noticia... query="+ queryNoticias);
                         SqlCommand commandNoticias = new SqlCommand(queryNoticias, cnn);
                         commandNoticias.ExecuteNonQuery();
