@@ -15,8 +15,7 @@ namespace ConsolaPruebaAPI
     {
         public static void Main(string[] args)
         {
-
-
+            
             string usuarioSQL = ConfigurationSettings.AppSettings["usuarioSQL"];
             string servidorSQL = ConfigurationSettings.AppSettings["servidorSQL"];
             string passwordSQL = ConfigurationSettings.AppSettings["passwordSQL"];
@@ -42,8 +41,7 @@ namespace ConsolaPruebaAPI
             string queryDelete = "delete from noticias";
             SqlCommand command2 = new SqlCommand(queryDelete, cnn);
             command2.ExecuteNonQuery();
-
-
+            
             if (articlesResponse.Status == Statuses.Ok)
             {
                 // total results found
@@ -69,9 +67,7 @@ namespace ConsolaPruebaAPI
                     string queryControl = "insert into NOTICIAS(TITULO,AUTOR,DESCRIPCION,URL,URLTOIMAGE,PUBLICADO,FUENTE_ID,FUENTE_NOMBRE) values('" + article.Title.Replace("'","") +")','" + article.Author + "','" + article.Description + "','" + article.Url + "','" + article.UrlToImage + "','" + article.PublishedAt + "','" + article.Source.Id + "','" + article.Source.Name+ "')";
                     SqlCommand command = new SqlCommand(queryControl, cnn);
                     command.ExecuteNonQuery();
-                }
-
-                
+                }   
             }
             cnn.Close();
             Console.ReadLine();
