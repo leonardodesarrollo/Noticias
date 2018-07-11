@@ -76,10 +76,7 @@
                         
                         <asp:TemplateField HeaderStyle-Width="7%" HeaderText="Feed">
                             <ItemTemplate>
-                                
-                                        <asp:LinkButton ID="btnIrFeed" OnClick="btnIrFeed_Click" runat="server" CssClass="btn btn-xs btn-success">Ver <span class="glyphicon glyphicon-arrow-right"></span></asp:LinkButton>
-                               
-                                        
+                                <asp:LinkButton ID="btnIrFeed" OnClick="btnIrFeed_Click" runat="server" CssClass="btn btn-xs btn-success">Ver <span class="glyphicon glyphicon-arrow-right"></span></asp:LinkButton>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Right" />
                         </asp:TemplateField>

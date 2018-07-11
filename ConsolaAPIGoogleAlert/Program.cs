@@ -10,6 +10,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.ServiceModel.Syndication;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace ConsolaAPIGoogleAlert
 {
@@ -99,6 +100,24 @@ namespace ConsolaAPIGoogleAlert
                             autor = itemAutor.Name;
                         }
                         
+                        ////String[] numeroSiniestro = Regex.Split(txtNumeroSiniestros.Text, "\n");
+                        //String[] _ArrBuscarUrl = Regex.Split(uri, "&");
+                        //string url = string.Empty;
+                        //for (int i = 0; i < _ArrBuscarUrl.Length; i++)
+                        //{
+                        //    url = _ArrBuscarUrl[i].Trim();
+                        //    if (url.Length>3)
+                        //    {
+                        //        if (url.StartsWith("url"))
+                        //        {
+                        //            url = url.Replace("url=", "");
+                        //        }
+                        //    }
+                        //}
+
+                        //string sdjds = url;
+
+
                         string queryNoticias = "exec stp_IngresoNoticia'" + id + "','" + idAlerta + "','" + titulo + "','" + autor + "','" + contenido + "','" + uri + "','" + uri + "','" + fecha + "'";
                         Console.WriteLine("Ingresando Noticia... query="+ queryNoticias);
                         SqlCommand commandNoticias = new SqlCommand(queryNoticias, cnn);
@@ -108,7 +127,7 @@ namespace ConsolaAPIGoogleAlert
                 }
                 
             }
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
     

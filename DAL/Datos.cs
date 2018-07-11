@@ -738,9 +738,96 @@ namespace DAL
             }
         }
 
+
+        public DataSet getBuscarEstado(Estado es)
+        {
+            //@idMandante int, @idUsuarioAsignado int
+            DbCommand cmd = db.GetStoredProcCommand("stp_BuscarEstado");
+            db.AddInParameter(cmd, "@activo", DbType.String, es.Activo);
+            try
+            {
+                return db.ExecuteDataSet(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se pudo buscar los estados, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo buscar los estados, " + ex.Message, ex);
+            }
+        }
+
         
-        
-        
+
+        public DataSet getBuscarNoticias(NOTICIAS noti, string fechaDesde, string fechaHasta)
+        {
+  //          @idAlert varchar(100),
+  //@titulo varchar(max),@descripcion varchar(max),@fechaDesde varchar(10),
+  //@fechaHasta varchar(10),@idEstado varchar(5),@relevante varchar(5),
+  //@idComuna varchar(10),@idUsuarioAsignado varchar(10)
+            DbCommand cmd = db.GetStoredProcCommand("stp_BuscarNoticias");
+            db.AddInParameter(cmd, "@idAlert", DbType.String, noti.ID_ALERT);
+            db.AddInParameter(cmd, "@titulo", DbType.String, noti.TITULO);
+            db.AddInParameter(cmd, "@descripcion", DbType.String, noti.DESCRIPCION);
+            if (fechaDesde==string.Empty)
+            {
+                db.AddInParameter(cmd, "@fechaDesde", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@fechaDesde", DbType.String, fechaDesde);
+            }
+            if (fechaHasta==string.Empty)
+            {
+                db.AddInParameter(cmd, "@fechaHasta", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@fechaHasta", DbType.String, fechaHasta);
+            }
+            
+            if (noti.IdEstado==0)
+            {
+                db.AddInParameter(cmd, "@idEstado", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@idEstado", DbType.String, noti.IdEstado);
+            }
+            if (noti.Relevante==2)
+            {
+                db.AddInParameter(cmd, "@relevante", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@relevante", DbType.String, noti.Relevante);
+            }
+            
+            db.AddInParameter(cmd, "@idComuna", DbType.String, noti.IdComuna);
+            if (noti.IdUsuarioAsignado==0)
+            {
+                db.AddInParameter(cmd, "@idUsuarioAsignado", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@idUsuarioAsignado", DbType.String, noti.IdUsuarioAsignado);
+            }
+            
+
+            try
+            {
+                return db.ExecuteDataSet(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error en buscar las noticias, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en buscar las noticias, " + ex.Message, ex);
+            }
+        }
 
 
     }

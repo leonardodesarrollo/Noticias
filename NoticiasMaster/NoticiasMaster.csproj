@@ -1278,6 +1278,7 @@
     <Content Include="assets\template\AdminLTE-2.3.0\README.md" />
     <None Include="packages.config" />
     <Content Include="Sitio.Master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
