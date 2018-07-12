@@ -92,14 +92,14 @@ namespace ConsolaAPIGoogleAlert
 
                             foreach (string valor in link.Uri.Query.Split('&'))
                             {
-                                string[] parts = valor.Replace("?", "").Split('=');
-                                if (parts[0] == "url")
+                                string[] partes = valor.Replace("?", "").Split('=');
+                                if (partes[0] == "url")
                                 {
-                                    uri = parts[1];
+                                    uri = partes[1];
                                     break;
                                 }
                             }
-
+                            
                             Console.WriteLine("RelationshipType: " + link.RelationshipType);
                             Console.WriteLine("MediaType: " + link.MediaType);
                             Console.WriteLine("Length: " + link.Length);
