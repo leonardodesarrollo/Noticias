@@ -27,6 +27,12 @@
                 <asp:LinkButton ID="btnNew" OnClick="btnNew_Click" runat="server" CssClass="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span></asp:LinkButton>
             </div>
             <div class="panel-body">
+
+                <div id="divNuevaAlerta" runat="server" visible="false">
+
+                </div>
+
+
                   <asp:GridView ID="grvAlertas" runat="server" ClientIDMode="Static" CssClass="table table-responsive table-condensed table-bordered table-striped small"
                             HeaderStyle-CssClass="active" PagerStyle-CssClass="active" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true" >
                     <Columns>
@@ -58,13 +64,24 @@
                                 <asp:Label ID="lblUltActualizacion" runat="server" Text='<%# Bind("UltActualizacion") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        
-                        <asp:TemplateField HeaderText="Feed">
+                        <asp:TemplateField HeaderText="Ult Agregada">
                             <ItemTemplate>
-                                <asp:LinkButton ID="btnIrFeed" OnClick="btnIrFeed_Click" runat="server" CssClass="btn btn-xs btn-success">Ver <span class="glyphicon glyphicon-arrow-right"></span></asp:LinkButton>
+                                <asp:Label ID="lblFechaUltimaAgregada" runat="server" Text='<%# Bind("FechaUltimaAgregada") %>'></asp:Label>
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
+                        
+
+                        <asp:TemplateField HeaderText="Q Noticias No Relevantes">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="btnIrFeed" OnClick="btnIrFeed_Click" Width="100%" runat="server" CssClass="btn btn-xs btn-warning"><asp:Label ID="lblCantidadNoticias" runat="server" Text='<%# Bind("CantidadNoticias") %>'></asp:Label> <span class="glyphicon glyphicon-link"></span></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Q Noticias Relevantes">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="btnIrFeedRelevantes" OnClick="btnIrFeedRelevantes_Click" Width="100%" runat="server" CssClass="btn btn-xs btn-success"><asp:Label ID="lblCantidadNoticiasRelevantes" runat="server" Text='<%# Bind("CantidadNoticiasRelevantes") %>'></asp:Label> <span class="glyphicon glyphicon-link"></span></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
                     </Columns>
                 </asp:GridView>
             </div>

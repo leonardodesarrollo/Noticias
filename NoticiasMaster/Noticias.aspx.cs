@@ -18,10 +18,15 @@ namespace NoticiasMaster
         {
             try
             {
+                //ScriptManager scriptManager = ScriptManager.GetCurrent(this.Page);
+                //scriptManager.RegisterPostBackControl(this.lbtnIrURLFrame);
+
                 if (!Page.IsPostBack)
                 {
+   
                     string _idAlarma = Convert.ToString(Request.QueryString["id"]);
                     FillDrop();
+                    hfAlerta.Value = _idAlarma;
                     Buscar(_idAlarma);
                 }
             }
@@ -243,18 +248,75 @@ namespace NoticiasMaster
         {
             try
             {
+
                 LinkButton btn = (LinkButton)sender;
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
                 Label _lblUrl = (Label)grvNoticias.Rows[row.RowIndex].FindControl("lblUrl");
+                frameWeb.Src = _lblUrl.Text;
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, "window.open('" + _lblUrl.Text + "','_blank');", true);
+                lbtnIrURLFrame.Text = _lblUrl.Text;
+
+                ScriptManager.RegisterStartupScript(UpdatePanel2, UpdatePanel2.GetType(), "show", "$(function () { $('#" + Panel1.ClientID + "').modal('show'); });", true);
+                UpdatePanel2.Update();
+
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, "window.open('" + _lblUrl.Text + "','_blank');", true);
                 //Response.Redirect(_lblUrl.Text);
+
+            }
+            catch (Exception ex)
+            {
+                divAlerta.Visible = true;
+                lblInfo.Text = ex.Message;
+            }
+        }
+
+        protected void lbtnIngresaRelevantes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NOTICIAS not = new NOTICIAS();
+                foreach (GridViewRow grd_Row in grvNoticias.Rows)
+                {
+                    Label _lblIdNoticia = (Label)grvNoticias.Rows[grd_Row.RowIndex].FindControl("lblIdNoticia");
+                    CheckBox chk = (CheckBox)grvNoticias.Rows[grd_Row.RowIndex].FindControl("chkSeleccionar");
+                    if (chk.Checked == true)
+                    {
+                        not.ID_NOTICIA = _lblIdNoticia.Text;
+                        //ingreso la noticia relevante con cambio de estado dentro del query
+                        dal.setInNoticiaRelevante(not);
+                    }
+                }
+                string idAlerta = hfAlerta.Value;
+                if (string.IsNullOrEmpty(idAlerta))
+                {
+                    Buscar(null);
+                }
+                else
+                {
+                    Buscar(idAlerta);
+                }
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                divAlerta.Visible = true;
+                lblInfo.Text = ex.Message;
+            }
+        }
 
-                throw;
+        protected void lbtnIrURLFrame_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string url = lbtnIrURLFrame.Text;
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, "window.open('" + url + "','_blank');", true);
+                //Response.Redirect(_lblUrl.Text);
+            }
+            catch (Exception ex)
+            {
+                divAlerta.Visible = true;
+                lblInfo.Text = ex.Message;
             }
         }
     }

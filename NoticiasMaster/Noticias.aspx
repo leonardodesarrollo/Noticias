@@ -1,9 +1,44 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="Noticias.aspx.cs" Inherits="NoticiasMaster.Noticias" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
 
+    function checkAll(objRef) {
+        var GridView = objRef.parentNode.parentNode.parentNode;
+        var inputList = GridView.getElementsByTagName("input");
+        for (var i = 0; i < inputList.length; i++) {
+            //Get the Cell To find out ColumnIndex
+            var row = inputList[i].parentNode.parentNode;
+            if (inputList[i].type == "checkbox" && objRef != inputList[i]) {
+                if (objRef.checked) {
+                    //If the header checkbox is checked
+                    //check all checkboxes
+                    //and highlight all rows
+                    //row.style.backgroundColor = "aqua";
+                    inputList[i].checked = true;
+                }
+                else {
+                    //If the header checkbox is checked
+                    //uncheck all checkboxes
+                    //and change rowcolor back to original
+                    if (row.rowIndex % 2 == 0) {
+                        //Alternating Row Color
+                        //row.style.backgroundColor = "#C2D69B";
+                    }
+                    else {
+                        row.style.backgroundColor = "white";
+                    }
+                    inputList[i].checked = false;
+                }
+            }
+        }
+    }
+
+
+</script>
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>Noticias
@@ -18,8 +53,7 @@
 
 
 
-
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="True">
         <ContentTemplate>
             <section class="content">
 
@@ -81,6 +115,7 @@
                             </div>
                         </div>
                         <br />
+                        <asp:HiddenField ID="hfAlerta" runat="server" />
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                 <div runat="server" id="divGrilla"  visible="false" style="width: 100%;  overflow-y: scroll;">
@@ -89,6 +124,18 @@
                                         EmptyDataText="Noticia no encontrada" EmptyDataRowStyle-CssClass="active h4" 
                                         PageSize="50" AllowPaging="true">
                                         <Columns>
+                                            <asp:TemplateField HeaderText="Relevante">
+                                                <HeaderTemplate>
+                                                    <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);"/>
+                                                    <asp:LinkButton ID="lbtnIngresaRelevantes" Visible="true" CssClass="btn btn-danger btn-xs" runat="server" 
+                                                    onclick="lbtnIngresaRelevantes_Click" onclientclick="return confirm('Las noticias seleccionadas pasaran a noticias relevantes. ¿Confirma hacerlo?');" >
+                                                        <i aria-hidden="true" class="glyphicon glyphicon-console"></i> </asp:LinkButton>
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <asp:CheckBox ID="chkSeleccionar" runat="server" />
+                                                    <asp:Label ID="lblRelevante" runat="server" Visible="false" Text='<%# Bind("Relevante") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                             <asp:TemplateField HeaderText="ID">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblIdAlerta" runat="server" Visible="false" Text='<%# Bind("ID_Alert") %>'></asp:Label>
@@ -113,6 +160,7 @@
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Url">
                                                 <ItemTemplate>
+                                             
                                                     <asp:Label ID="lblUrl" runat="server" Text='<%# Bind("Url") %>' Visible="false"></asp:Label>
                                                     <asp:LinkButton ID="lbtnIrUrl" CssClass="btn btn-danger btn-xs" runat="server"
                                                     OnClick="lbtnIrUrl_Click"><i aria-hidden="true" class="glyphicon glyphicon-cloud"></i> </asp:LinkButton>
@@ -129,11 +177,7 @@
                                                     <asp:Label ID="lblEstado" runat="server" Text='<%# Bind("NombreEstado") %>' ></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Relevante">
-                                                <ItemTemplate>
-                                                    <asp:Label ID="lblRelevante" runat="server" Text='<%# Bind("Relevante") %>'></asp:Label>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
+                                            
                                             <asp:TemplateField HeaderText="U.Asignado">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblUsuarioAsignado" runat="server" Text='<%# Bind("UsuarioAsignado") %>'></asp:Label>
@@ -217,10 +261,47 @@
                   
 
                 </div>
+
+
+
+
+
+
+
+                
+            <asp:Panel ID="Panel1" runat="server" CssClass="modal fade bs-example-modal-lg " TabIndex="-1" role="dialog" aria-labelledby="myLabel">
+                <div class="modal-dialog modal-lg panel" role="document">
+                    <div class="modal-content">
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <%--<div class="modal-header">
+                                    <h4 class="modal-title" id=" myLabel ">Observación del Ticket</h4>
+                                </div>
+                                <div class="modal-body">
+                                    kkkkkkkkkkkkkkkkkkk
+                                </div>--%>
+
+                                <div class=" panel-info">
+                                    <div class="panel-heading">URL: 
+                                        <asp:LinkButton ID="lbtnIrURLFrame" runat="server" CssClass="btn btn-danger btn-xs" OnClick="lbtnIrURLFrame_Click" ><i aria-hidden="true" class="glyphicon glyphicon-cloud"></i> </asp:LinkButton>
+                                   
+                                    </div>
+                                    <div class="panel-body">
+                                        <iframe runat="server"  frameborder="0" id="frameWeb" width="100%" height="600px" scrolling="auto"></iframe>
+                                    </div>
+                                </div>
+
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                </div>
+            </asp:Panel>
+                
             </section>
         </ContentTemplate>
     </asp:UpdatePanel>
 
+   
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
 </asp:Content>

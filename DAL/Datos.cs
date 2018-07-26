@@ -830,5 +830,98 @@ namespace DAL
         }
 
 
+        public DataSet getBuscarNoticiasRelevantes(NOTICIAS noti, string fechaDesde, string fechaHasta)
+        {
+            //          @idAlert varchar(100),
+            //@titulo varchar(max),@descripcion varchar(max),@fechaDesde varchar(10),
+            //@fechaHasta varchar(10),@idEstado varchar(5),@relevante varchar(5),
+            //@idComuna varchar(10),@idUsuarioAsignado varchar(10)
+            DbCommand cmd = db.GetStoredProcCommand("stp_BuscarNoticiasRelevantes");
+            db.AddInParameter(cmd, "@idAlert", DbType.String, noti.ID_ALERT);
+            db.AddInParameter(cmd, "@titulo", DbType.String, noti.TITULO);
+            db.AddInParameter(cmd, "@descripcion", DbType.String, noti.DESCRIPCION);
+            if (fechaDesde == string.Empty)
+            {
+                db.AddInParameter(cmd, "@fechaDesde", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@fechaDesde", DbType.String, fechaDesde);
+            }
+            if (fechaHasta == string.Empty)
+            {
+                db.AddInParameter(cmd, "@fechaHasta", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@fechaHasta", DbType.String, fechaHasta);
+            }
+
+            if (noti.IdEstado == 0)
+            {
+                db.AddInParameter(cmd, "@idEstado", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@idEstado", DbType.String, noti.IdEstado);
+            }
+            if (noti.Relevante == 2)
+            {
+                db.AddInParameter(cmd, "@relevante", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@relevante", DbType.String, noti.Relevante);
+            }
+
+            db.AddInParameter(cmd, "@idComuna", DbType.String, noti.IdComuna);
+            if (noti.IdUsuarioAsignado == 0)
+            {
+                db.AddInParameter(cmd, "@idUsuarioAsignado", DbType.String, null);
+            }
+            else
+            {
+                db.AddInParameter(cmd, "@idUsuarioAsignado", DbType.String, noti.IdUsuarioAsignado);
+            }
+
+
+            try
+            {
+                return db.ExecuteDataSet(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error en buscar las noticias relevantes, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en buscar las noticias relevantes, " + ex.Message, ex);
+            }
+        }
+
+
+
+        public void setInNoticiaRelevante(NOTICIAS not)
+        {
+            DbCommand cmd = db.GetStoredProcCommand("stp_IngresaNoticiaRelevante");
+
+            db.AddInParameter(cmd, "@idNoticia", DbType.String, not.ID_NOTICIA);
+  
+            try
+            {
+                db.ExecuteNonQuery(cmd);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("No se pudo ingresar el archivo, " + ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo ingresar el archivo, " + ex.Message, ex);
+            }
+        }
+        
+
+
     }
 }

@@ -17,6 +17,7 @@ namespace ENT
     {
         
         private String mID;
+        private String mID_NOTICIA;
         
         private String mID_ALERT;
         
@@ -61,7 +62,19 @@ namespace ENT
                 this.mID = value;
             }
         }
-        
+
+        public virtual String ID_NOTICIA
+        {
+            get
+            {
+                return this.mID_NOTICIA;
+            }
+            set
+            {
+                this.mID_NOTICIA = value;
+            }
+        }
+
         public virtual String ID_ALERT
         {
             get

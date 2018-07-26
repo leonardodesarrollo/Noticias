@@ -1056,10 +1056,12 @@
     <Content Include="ModEmailRead.aspx" />
     <Content Include="NoticiaDetalle.aspx" />
     <Content Include="Noticias.aspx" />
+    <Content Include="NoticiasRelevantes.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alertas.aspx.cs">
@@ -1143,6 +1145,13 @@
     <Compile Include="Noticias.aspx.designer.cs">
       <DependentUpon>Noticias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NoticiasRelevantes.aspx.cs">
+      <DependentUpon>NoticiasRelevantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NoticiasRelevantes.aspx.designer.cs">
+      <DependentUpon>NoticiasRelevantes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sitio.Master.cs">
       <DependentUpon>Sitio.Master</DependentUpon>
@@ -1159,6 +1168,13 @@
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilidad.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\template\AdminLTE-2.3.0\.jshintrc" />
@@ -1298,6 +1314,10 @@
     <ProjectReference Include="..\ENT\ENT.csproj">
       <Project>{a691d9d5-bb0b-4ae0-943c-af88f30266aa}</Project>
       <Name>ENT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoogleAlertAPI-master\GoogleAlertAPI.csproj">
+      <Project>{c84f5e1e-f821-4f42-bbde-dbb45fab43ef}</Project>
+      <Name>GoogleAlertAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

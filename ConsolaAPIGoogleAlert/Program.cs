@@ -64,7 +64,7 @@ namespace ConsolaAPIGoogleAlert
 
                     foreach (var item in feedContent.Items)
                     {
-
+                        
                         Console.WriteLine("Item Title: " + item.Title.Text);
                         string titulo = item.Title.Text;
                         string id = item.Id;

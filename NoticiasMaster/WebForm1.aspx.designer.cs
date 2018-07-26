@@ -10,60 +10,60 @@
 namespace NoticiasMaster {
     
     
-    public partial class Alertas {
+    public partial class WebForm1 {
         
         /// <summary>
-        /// Control divAlerta.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAlerta;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control lblInfo.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfo;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Control divSearch.
+        /// Control Button2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSearch;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// Control btnNew.
+        /// Control Button3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNew;
+        protected global::System.Web.UI.WebControls.Button Button3;
         
         /// <summary>
-        /// Control divNuevaAlerta.
+        /// Control Panel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNuevaAlerta;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// Control grvAlertas.
+        /// Control dialog.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvAlertas;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dialog;
     }
 }

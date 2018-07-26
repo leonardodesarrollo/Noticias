@@ -32,7 +32,15 @@ namespace NoticiasMaster
 
         protected void btnNew_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                divAlerta.Visible = true;
+                lblInfo.Text = ex.Message;
+            }
         }
 
         void BuscarAlertas()
@@ -60,5 +68,22 @@ namespace NoticiasMaster
             }
         }
 
+        protected void btnIrFeedRelevantes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LinkButton btn = (LinkButton)sender;
+                GridViewRow row = (GridViewRow)btn.NamingContainer;
+                Label _lblId = (Label)grvAlertas.Rows[row.RowIndex].FindControl("lblId");
+                Label _lblIdAlerta = (Label)grvAlertas.Rows[row.RowIndex].FindControl("lblIdAlerta");
+
+                Response.Redirect("NoticiasRelevantes.aspx?id=" + _lblIdAlerta.Text);
+            }
+            catch (Exception ex)
+            {
+                divAlerta.Visible = true;
+                lblInfo.Text = ex.Message;
+            }
+        }
     }
 }
