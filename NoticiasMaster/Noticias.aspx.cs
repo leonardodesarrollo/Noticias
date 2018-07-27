@@ -94,8 +94,6 @@ namespace NoticiasMaster
                 Label _lblIdEstado = (Label)e.Row.FindControl("lblIdEstado");
                 Label _lblRelevante = (Label)e.Row.FindControl("lblRelevante");
 
-                
-
                 if (_lblIdEstado.Text == "1")
                 {
                     _lblEstado.CssClass = "text text-uppercase label label-warning";
@@ -115,24 +113,6 @@ namespace NoticiasMaster
                     _lblRelevante.CssClass = "label label-success";
                     _lblRelevante.Text = "Si";
                 }
-
-                //    if (string.IsNullOrEmpty(_lblArchivo.Text) == true)
-                //    {
-                //        _btnArchivo.Visible = false;
-                //    }
-                //    else
-                //    {
-                //        _btnArchivo.Visible = true;
-                //    }
-
-                //    if (string.IsNullOrEmpty(_lblArchivo2.Text) == true)
-                //    {
-                //        _btnArchivo2.Visible = false;
-                //    }
-                //    else
-                //    {
-                //        _btnArchivo2.Visible = true;
-                //    }
             }
 
             if (e.Row.RowType == DataControlRowType.Pager)
@@ -153,32 +133,26 @@ namespace NoticiasMaster
 
         protected void imgFirst_Click(object sender, EventArgs e)
         {
-            //buscar();
+           
             if (Session["sessionDtNoticias"] != null)
             {
                 grvNoticias.DataSource = Session["sessionDtNoticias"];
                 grvNoticias.DataBind();
             }
-            else
-            {
-                //buscar();
-            }
+           
             grvNoticias.PageIndex = 0;
             grvNoticias.DataBind();
         }
 
         protected void imgPrev_Click(object sender, EventArgs e)
         {
-            //buscar();
+           
             if (Session["sessionDtNoticias"] != null)
             {
                 grvNoticias.DataSource = Session["sessionDtNoticias"];
                 grvNoticias.DataBind();
             }
-            else
-            {
-                //buscar();
-            }
+           
             if (grvNoticias.PageIndex != 0)
                 grvNoticias.PageIndex--;
             grvNoticias.DataBind();
@@ -186,16 +160,13 @@ namespace NoticiasMaster
 
         protected void imgNext_Click(object sender, EventArgs e)
         {
-            //buscar();
+            
             if (Session["sessionDtNoticias"] != null)
             {
                 grvNoticias.DataSource = Session["sessionDtNoticias"];
                 grvNoticias.DataBind();
             }
-            else
-            {
-                //buscar();
-            }
+            
 
             if (grvNoticias.PageIndex != (grvNoticias.PageCount - 1))
                 grvNoticias.PageIndex++;
@@ -204,15 +175,11 @@ namespace NoticiasMaster
 
         protected void imgLast_Click(object sender, EventArgs e)
         {
-            //buscar();
+         
             if (Session["sessionDtNoticias"] != null)
             {
                 grvNoticias.DataSource = Session["sessionDtNoticias"];
                 grvNoticias.DataBind();
-            }
-            else
-            {
-                //buscar();
             }
 
             grvNoticias.PageIndex = grvNoticias.PageCount - 1;
@@ -258,9 +225,7 @@ namespace NoticiasMaster
 
                 ScriptManager.RegisterStartupScript(UpdatePanel2, UpdatePanel2.GetType(), "show", "$(function () { $('#" + Panel1.ClientID + "').modal('show'); });", true);
                 UpdatePanel2.Update();
-
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), UniqueID, "window.open('" + _lblUrl.Text + "','_blank');", true);
-                //Response.Redirect(_lblUrl.Text);
+                
 
             }
             catch (Exception ex)

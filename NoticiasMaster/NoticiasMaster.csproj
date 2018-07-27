@@ -1054,6 +1054,7 @@
     <Content Include="ModEmail.aspx" />
     <Content Include="ModEmailNew.aspx" />
     <Content Include="ModEmailRead.aspx" />
+    <Content Include="NewAlert.aspx" />
     <Content Include="NoticiaDetalle.aspx" />
     <Content Include="Noticias.aspx" />
     <Content Include="NoticiasRelevantes.aspx" />
@@ -1130,6 +1131,13 @@
     </Compile>
     <Compile Include="ModEmailRead.aspx.designer.cs">
       <DependentUpon>ModEmailRead.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewAlert.aspx.cs">
+      <DependentUpon>NewAlert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewAlert.aspx.designer.cs">
+      <DependentUpon>NewAlert.aspx</DependentUpon>
     </Compile>
     <Compile Include="NoticiaDetalle.aspx.cs">
       <DependentUpon>NoticiaDetalle.aspx</DependentUpon>

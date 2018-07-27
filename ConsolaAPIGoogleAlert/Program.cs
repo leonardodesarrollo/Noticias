@@ -89,7 +89,6 @@ namespace ConsolaAPIGoogleAlert
                             //
                             uri2 = link.Uri.OriginalString;
 
-
                             foreach (string valor in link.Uri.Query.Split('&'))
                             {
                                 string[] partes = valor.Replace("?", "").Split('=');

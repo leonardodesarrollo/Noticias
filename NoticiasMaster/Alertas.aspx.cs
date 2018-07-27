@@ -34,7 +34,7 @@ namespace NoticiasMaster
         {
             try
             {
-
+                Response.Redirect("NewAlert.aspx");
             }
             catch (Exception ex)
             {
@@ -85,5 +85,7 @@ namespace NoticiasMaster
                 lblInfo.Text = ex.Message;
             }
         }
+
+        
     }
 }

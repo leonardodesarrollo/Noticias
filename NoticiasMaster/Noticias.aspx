@@ -129,7 +129,7 @@
                                                     <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);"/>
                                                     <asp:LinkButton ID="lbtnIngresaRelevantes" Visible="true" CssClass="btn btn-danger btn-xs" runat="server" 
                                                     onclick="lbtnIngresaRelevantes_Click" onclientclick="return confirm('Las noticias seleccionadas pasaran a noticias relevantes. ¿Confirma hacerlo?');" >
-                                                        <i aria-hidden="true" class="glyphicon glyphicon-console"></i> </asp:LinkButton>
+                                                        <i aria-hidden="true" class="glyphicon glyphicon-equalizer"></i> </asp:LinkButton>
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
                                                     <asp:CheckBox ID="chkSeleccionar" runat="server" />

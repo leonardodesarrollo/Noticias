@@ -10,7 +10,7 @@
 namespace NoticiasMaster {
     
     
-    public partial class Alertas {
+    public partial class NewAlert {
         
         /// <summary>
         /// Control divAlerta.
@@ -31,39 +31,30 @@ namespace NoticiasMaster {
         protected global::System.Web.UI.WebControls.Label lblInfo;
         
         /// <summary>
-        /// Control UpdatePanel1.
+        /// Control txtQuery.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.TextBox txtQuery;
         
         /// <summary>
-        /// Control divSearch.
+        /// Control ddlRegion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSearch;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRegion;
         
         /// <summary>
-        /// Control btnNew.
+        /// Control ddlLenguaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNew;
-        
-        /// <summary>
-        /// Control grvAlertas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvAlertas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLenguaje;
     }
 }
